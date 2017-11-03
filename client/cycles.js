@@ -79,6 +79,16 @@ export function WSDriver() {
       this.connection.onmessage = msg => {
         listener.next(msg)
       }
+      this.connection.onclose = e => {
+        // handle heroku's automatically close ws issue
+        if (e.code === 1006) {
+          const {onmessage, onerror, onclose} = this.connection
+          this.connection = new WebSocket('ws://shrouded-oasis-20966.herokuapp.com/api/v1/topics')
+          this.connection.onerror = onerror
+          this.connection.onmessage = onmessage
+          this.connection.onclose = onclose
+        }
+      }
     },
     stop: () => {
       this.connection.close()
