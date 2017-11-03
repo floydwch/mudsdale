@@ -1,0 +1,21 @@
+{
+  "extends": "airbnb",
+  "rules": {
+    "semi": ["warn", "never"],
+    "comma-dangle": ["error", "never"],
+    "camelcase": [0],
+    "object-curly-spacing": ["warn", "never"],
+    "global-require": [0],
+    "react/prefer-stateless-function": [0],
+    "react/jsx-filename-extension": [0],
+    "react/jsx-tag-spacing": [
+      "warn",
+      {
+        "beforeSelfClosing": "never"
+      }
+    ]
+  },
+  "globals": {
+    "__DEV__": true
+  }
+}
