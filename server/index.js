@@ -19,8 +19,14 @@ api_router.get('/topics', (req, res) => {
 })
 
 api_router.ws('/topics', ws => {
-  topic_store.observe(topics => {
+  const observer = topics => {
     ws.send(JSON.stringify({topics}))
+  }
+
+  topic_store.observe(observer)
+
+  ws.on('close', () => {
+    topic_store.removeObserver(observer)
   })
 })
 

@@ -5,15 +5,19 @@ class TopicStore {
   constructor() {
     this.topics = []
     this.topic_indices = {}
-    this.observers = []
+    this.observers = new Set()
   }
 
   get head() {
     return this.topics.slice().sort((a, b) => b.votes - a.votes).slice(0, 20)
   }
 
-  observe(cb) {
-    this.observers.push(cb)
+  observe(observer) {
+    this.observers.add(observer)
+  }
+
+  removeObserver(observer) {
+    this.observers.delete(observer)
   }
 
   notify() {
