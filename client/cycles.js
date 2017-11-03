@@ -72,7 +72,7 @@ export function vote_topic(source) {
 export function WSDriver() {
   const source = xs.create({
     start: listener => {
-      this.connection = new WebSocket('ws://localhost:3000/api/v1/topics')
+      this.connection = new WebSocket('ws://shrouded-oasis-20966.herokuapp.com/api/v1/topics')
       this.connection.onerror = err => {
         listener.error(err)
       }
