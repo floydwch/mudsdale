@@ -18,6 +18,7 @@
   },
   "globals": {
     "document": true,
+    "WebSocket": true,
     "__DEV__": true
   }
 }
