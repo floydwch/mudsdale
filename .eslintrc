@@ -3,6 +3,7 @@
   "rules": {
     "semi": ["warn", "never"],
     "comma-dangle": ["error", "never"],
+    "arrow-parens": ["error", "as-needed"],
     "camelcase": [0],
     "object-curly-spacing": ["warn", "never"],
     "global-require": [0],
@@ -16,6 +17,7 @@
     ]
   },
   "globals": {
+    "document": true,
     "__DEV__": true
   }
 }
