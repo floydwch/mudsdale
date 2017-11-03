@@ -28,7 +28,9 @@ api_router.post('/topic', (req, res) => {
   const {title} = req.body
 
   if (title.length > 0 && title.length <= 255) {
-    topic_store.push(req.body.title)
+    topic_store.push({
+      title: req.body.title
+    })
     res.send({
       status: 'success'
     })
@@ -38,6 +40,13 @@ api_router.post('/topic', (req, res) => {
       message: 'title\'s length must be between 1 and 255.'
     })
   }
+})
+
+api_router.patch('/topics/:id', (req, res) => {
+  topic_store.vote(req.params.id, req.body.vote)
+  res.send({
+    status: 'success'
+  })
 })
 
 app.use(express.static('public'))

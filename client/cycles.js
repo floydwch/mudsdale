@@ -52,6 +52,23 @@ export function create_topic(source) {
 }
 
 
+export function vote_topic(source) {
+  const request$ = source.ACTION
+    .filter(action => action.type === 'VOTE_TOPIC')
+    .map(action => ({
+      url: `http://localhost:3000/api/v1/topics/${action.payload.id}`,
+      method: 'patch',
+      send: {
+        vote: action.payload.vote
+      }
+    }))
+
+  return {
+    HTTP: request$
+  }
+}
+
+
 export function WSDriver() {
   const source = xs.create({
     start: listener => {
@@ -75,5 +92,6 @@ export function WSDriver() {
 export default combineCycles(
   load_head_topics,
   sync_head_topics,
-  create_topic
+  create_topic,
+  vote_topic
 )
