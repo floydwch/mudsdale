@@ -9,7 +9,7 @@ export function load_head_topics(source) {
   const request$ = source.ACTION
     .filter(action => action.type === 'LOAD_HEAD_TOPICS')
     .map(() => ({
-      url: 'http://localhost:3000/api/v1/topics',
+      url: '/api/v1/topics',
       method: 'get',
       category: 'topics'
     }))
@@ -39,7 +39,7 @@ export function create_topic(source) {
   const request$ = source.ACTION
     .filter(action => action.type === 'CREATE_TOPIC')
     .map(action => ({
-      url: 'http://localhost:3000/api/v1/topic',
+      url: '/api/v1/topic',
       method: 'post',
       send: {
         title: action.payload.title
@@ -56,7 +56,7 @@ export function vote_topic(source) {
   const request$ = source.ACTION
     .filter(action => action.type === 'VOTE_TOPIC')
     .map(action => ({
-      url: `http://localhost:3000/api/v1/topics/${action.payload.id}`,
+      url: `/api/v1/topics/${action.payload.id}`,
       method: 'patch',
       send: {
         vote: action.payload.vote
