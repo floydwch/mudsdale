@@ -5,7 +5,8 @@
   "license": "MIT",
   "scripts": {
     "start": "node server/index.js",
-    "build": "webpack && cp client/index.html public"
+    "build": "webpack && cp client/index.html public",
+    "postinstall": "yarn run build"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
