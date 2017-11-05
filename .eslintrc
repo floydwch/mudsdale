@@ -2,6 +2,7 @@
   "extends": "airbnb",
   "rules": {
     "semi": ["warn", "never"],
+    "no-shadow": [0],
     "comma-dangle": ["error", "never"],
     "arrow-parens": ["error", "as-needed"],
     "camelcase": [0],
@@ -9,6 +10,7 @@
     "global-require": [0],
     "react/prefer-stateless-function": [0],
     "react/jsx-filename-extension": [0],
+    "react/prop-types": [0],
     "react/jsx-tag-spacing": [
       "warn",
       {
@@ -20,5 +22,19 @@
     "window": true,
     "WebSocket": true,
     "__DEV__": true
-  }
+  },
+  "overrides": [
+    {
+      "files": ["tests/*.js"],
+      "globals": {
+        "fixture": true,
+        "test": true,
+      },
+      "rules": {
+        "no-unused-vars": ["error", {"varsIgnorePattern": "Selector"}],
+        "no-unused-expressions": ["error", {"allowTaggedTemplates": true}],
+        "template-tag-spacing": ["error", "always"]
+      }
+    }
+  ]
 }

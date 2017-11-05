@@ -60,4 +60,4 @@ app.use(express.static('public'))
   .use(bodyParser.json())
   .use('/api/v1', api_router)
 
-app.listen(process.env.PORT || 3000)
+app.listen(process.env.PORT)

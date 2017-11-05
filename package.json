@@ -5,6 +5,7 @@
   "license": "MIT",
   "scripts": {
     "start": "PORT=${PORT:=3000} node server/index.js",
+    "lint": "eslint server client webpack.config.js",
     "build": "webpack && cp client/index.html public",
     "heroku-postbuild": "yarn run build"
   },
