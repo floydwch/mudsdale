@@ -17,7 +17,7 @@
     ]
   },
   "globals": {
-    "document": true,
+    "window": true,
     "WebSocket": true,
     "__DEV__": true
   }

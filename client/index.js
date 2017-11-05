@@ -7,12 +7,12 @@ import store from './store'
 import App from './components/App'
 
 
-document.addEventListener('DOMContentLoaded', () => {
+window.document.addEventListener('DOMContentLoaded', () => {
   store.dispatch(actions.load_head_topics())
   ReactDOM.render(
     <Provider store={store}>
       <App/>
     </Provider>,
-    document.getElementById('app')
+    window.document.getElementById('app')
   )
 })

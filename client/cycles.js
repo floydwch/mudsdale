@@ -70,9 +70,12 @@ export function vote_topic(source) {
 
 
 export function WSDriver() {
+  const protocol = window.protocol === 'https' ? 'wss' : 'ws'
+  const url = `${protocol}://${window.location.host}/api/v1/topics`
+
   const source = xs.create({
     start: listener => {
-      this.connection = new WebSocket('ws://shrouded-oasis-20966.herokuapp.com/api/v1/topics')
+      this.connection = new WebSocket(url)
       this.connection.onerror = err => {
         listener.error(err)
       }
@@ -83,7 +86,7 @@ export function WSDriver() {
         // handle heroku's automatically close ws issue
         if (e.code === 1006) {
           const {onmessage, onerror, onclose} = this.connection
-          this.connection = new WebSocket('ws://shrouded-oasis-20966.herokuapp.com/api/v1/topics')
+          this.connection = new WebSocket('url')
           this.connection.onerror = onerror
           this.connection.onmessage = onmessage
           this.connection.onclose = onclose
