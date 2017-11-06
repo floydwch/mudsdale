@@ -1,11 +1,15 @@
 import React from 'react'
 
 
-export default ({topic, handleUpvote, handleDownvote}) => (
-  <li>
-    {topic.votes}
-    <button onClick={handleUpvote}>+1</button>
-    <button onClick={handleDownvote}>-1</button>
-    {topic.title}
-  </li>
-)
+export default function TopicListItem({
+  topic, handleUpvote, handleDownvote
+}) {
+  return (
+    <li>
+      <span className="topic-list-item__votes">{topic.votes}</span>
+      <button onClick={handleUpvote}>+1</button>
+      <button onClick={handleDownvote}>-1</button>
+      <span className="topic-list-item__title">{topic.title}</span>
+    </li>
+  )
+}
