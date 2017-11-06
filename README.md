@@ -10,6 +10,7 @@ See in http://shrouded-oasis-20966.herokuapp.com/ .
 * no concern for server-side rendering
 * no concern for the top 20 sorting performance
 * no concern for code optimization, e.g. minification
+* use http
 * e2e test
 * lint
 * no concern for CI
