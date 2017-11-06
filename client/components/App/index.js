@@ -7,7 +7,7 @@ import InputBox from '../InputBox'
 import TopicListItem from '../TopicListItem'
 
 
-export function App({topics, actions}) {
+export default function App({topics, actions}) {
   const items = topics.map(topic => (
     <TopicListItem
       key={`topic-list-item-${topic.id}`}
@@ -28,7 +28,7 @@ export function App({topics, actions}) {
 }
 
 
-export default connect(
+export const ConnectedApp = connect(
   state => ({topics: state.topics}),
   dispatch => ({actions: bindActionCreators(actions, dispatch)})
 )(App)

@@ -4,7 +4,7 @@ import {Provider} from 'react-redux'
 
 import * as actions from './actions'
 import store from './store'
-import ConnectedApp from './components/App'
+import {ConnectedApp} from './components/App'
 
 
 window.document.addEventListener('DOMContentLoaded', () => {
