@@ -7,6 +7,8 @@
     "start": "PORT=${PORT:=3000} node server/index.js",
     "lint": "eslint server client webpack.config.js",
     "build": "webpack && cp client/index.html public",
+    "test": "PORT=${PORT:=3000} testcafe chrome:headless tests",
+    "test:open": "PORT=${PORT:=3000} testcafe chrome tests",
     "heroku-postbuild": "yarn run build"
   },
   "devDependencies": {
@@ -21,6 +23,8 @@
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-react": "^7.4.0",
+    "testcafe": "^0.18.2",
+    "testcafe-react-selectors": "^1.0.2",
     "webpack": "^3.8.1"
   },
   "dependencies": {

@@ -3,8 +3,10 @@
   "rules": {
     "semi": ["warn", "never"],
     "no-shadow": [0],
+    "no-await-in-loop": ["warn"],
     "comma-dangle": ["error", "never"],
     "arrow-parens": ["error", "as-needed"],
+    "function-paren-newline": [0],
     "camelcase": [0],
     "object-curly-spacing": ["warn", "never"],
     "global-require": [0],
@@ -33,7 +35,8 @@
       "rules": {
         "no-unused-vars": ["error", {"varsIgnorePattern": "Selector"}],
         "no-unused-expressions": ["error", {"allowTaggedTemplates": true}],
-        "template-tag-spacing": ["error", "always"]
+        "template-tag-spacing": ["error", "always"],
+        "newline-per-chained-call": [0]
       }
     }
   ]
