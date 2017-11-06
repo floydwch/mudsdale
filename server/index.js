@@ -59,10 +59,19 @@ api_router.post('/topic', (req, res) => {
 // endpoint for voting a topic by id
 // by patch /api/v1/topics/:id with {vote := [1, -1]}
 api_router.patch('/topics/:id', (req, res) => {
-  topic_store.vote(req.params.id, req.body.vote)
-  res.send({
-    status: 'success'
-  })
+  const {vote} = req.body
+
+  if (vote === 1 || vote === -1) {
+    topic_store.vote(req.params.id, req.body.vote)
+    res.send({
+      status: 'success'
+    })
+  } else {
+    res.send({
+      status: 'error',
+      message: 'vote should be in [1, -1]'
+    })
+  }
 })
 
 app.use(express.static('public'))
