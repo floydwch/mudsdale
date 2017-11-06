@@ -4,11 +4,12 @@ A demo for something cool.
 
 See in http://shrouded-oasis-20966.herokuapp.com/ .
 
-## Assumption
+## Assumptions
 * handle invalid input on server side
 * sync all clients in realtime
 * no concern for server-side rendering
 * no concern for the top 20 sorting performance
+* only sort topics by votes, no concern for the stability
 * no concern for code optimization, e.g. minification
 * use http
 * e2e test
