@@ -2,8 +2,6 @@
 
 A demo for something cool.
 
-See in http://shrouded-oasis-20966.herokuapp.com/ .
-
 ## Assumptions
 * handle invalid input on server side
 * sync all clients in realtime
